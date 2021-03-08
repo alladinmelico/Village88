@@ -1,0 +1,31 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: burlywood;
+}
+
+#app {
+	position: relative;
+	height: 500px;
+	width: 500px;
+	border: 5px solid brown;
+	background-image: url('pixel-background.png');
+}
+
+#character {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 85px;
+	width: 58px;
+	background-image: url('down1.png');
+}
