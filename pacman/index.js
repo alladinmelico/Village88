@@ -9,13 +9,13 @@ function selectRandomMap() {
 }
 
 function generateMap() {
-	var MAP_WIDTH = 20;
-	var MAP_HEIGHT = 20;
+	var MAP_WIDTH = 30;
+	var MAP_HEIGHT = 30;
 	let values = [];
 	map = [];
 	for (let i = 1; i <= 100; i++) {
 		// probabilities of blocks on the map
-		if (i >= 97) {
+		if (i >= 98) {
 			values.push(5);
 		} else if (i >= 85) {
 			values.push(4);
@@ -127,7 +127,7 @@ document.onkeydown = function (e) {
 	console.log(pacman);
 
 	if (hasMatch) {
-		// chasePacman();
+		chasePacman();
 		(function () {
 			for (let i = 0; i < map.length; i++) {
 				for (let j = 0; j < map[i].length; j++) {
@@ -160,70 +160,6 @@ document.getElementById('randomBtn').onclick = function (e) {
 };
 
 function chasePacman() {
-	console.log('run');
-	for (let i = 0; i < map.length; i++) {
-		for (let j = 0; j < map[i].length; j++) {
-			let newX = 0;
-			let newY = 0;
-			if (map[i][j] == 5) {
-				if (pacman.x < j && map[i][j - 1] != 2) {
-					newX = -1;
-				} else if (map[i][j + 1] != 2) {
-					newX = 1;
-				}
-
-				if (pacman.y < j && map[i - 1][j + newX] != 2) {
-					newY = -1;
-				} else if (map[i + 1][j + newX] != 2) {
-					newY = 1;
-				}
-				if (map[i + newY][j + newX] == 3) {
-					alert('You died');
-					displayWorld();
-					updateScore();
-					return;
-				}
-				map[i][j] = 1;
-				map[i + newY][j + newX] = 5;
-			}
-		}
-	}
-	displayWorld();
-}
-
-function moveToX(i, j) {
-	let toReplace = 1;
-	if (pacman.x < j) {
-		if (map[i][j - 1] != 2) {
-			map[i][j] = 1;
-			toReplace = map[i][j - 1];
-			map[i][j - 1] = 5;
-		}
-	} else if (map[i][j + 1] != 2) {
-		map[i][j] = 1;
-		toReplace = map[i][j + 1];
-		map[i][j + 1] = 5;
-	}
-	return toReplace;
-}
-
-function moveToY(i, j) {
-	let toReplace = 1;
-	if (pacman.y < i) {
-		if (map[i - 1][j] != 2) {
-			map[i][j] = 1;
-			toReplace = map[i - 1][j];
-			map[i - 1][j] = 5;
-		}
-	} else if (map[i + 1][j] != 2) {
-		map[i][j] = 1;
-		toReplace = map[i + 1][j];
-		map[i + 1][j] = 5;
-	}
-	return toReplace;
-}
-
-setInterval(function chasePacman() {
 	console.log('run');
 	for (let y = 0; y < map.length; y++) {
 		for (let x = 0; x < map[y].length; x++) {
@@ -273,8 +209,42 @@ setInterval(function chasePacman() {
 			}
 		}
 	}
-	displayWorld();
-}, 1000);
+	// displayWorld();
+}
+
+function moveToX(i, j) {
+	let toReplace = 1;
+	if (pacman.x < j) {
+		if (map[i][j - 1] != 2) {
+			map[i][j] = 1;
+			toReplace = map[i][j - 1];
+			map[i][j - 1] = 5;
+		}
+	} else if (map[i][j + 1] != 2) {
+		map[i][j] = 1;
+		toReplace = map[i][j + 1];
+		map[i][j + 1] = 5;
+	}
+	return toReplace;
+}
+
+function moveToY(i, j) {
+	let toReplace = 1;
+	if (pacman.y < i) {
+		if (map[i - 1][j] != 2) {
+			map[i][j] = 1;
+			toReplace = map[i - 1][j];
+			map[i - 1][j] = 5;
+		}
+	} else if (map[i + 1][j] != 2) {
+		map[i][j] = 1;
+		toReplace = map[i + 1][j];
+		map[i + 1][j] = 5;
+	}
+	return toReplace;
+}
+
+// setInterval(chasePacman, 1000);
 
 function reset() {
 	pacman = {
