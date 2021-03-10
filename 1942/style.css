@@ -1,0 +1,98 @@
+body {
+	background-color: black;
+}
+#container {
+	background: url('space.jpg');
+	width: 1280px;
+	height: 720px;
+}
+#hero {
+	background: url('1942.gif');
+	background-position-y: -336px;
+	background-position-x: -90px;
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	transition: ease-out;
+	transform: scale(3);
+}
+
+.enemy {
+	background: url('1942.gif');
+	width: 23px;
+	height: 18px;
+	position: absolute;
+}
+
+.enemy1 {
+	background: url('1942.gif');
+	background-position: -30px -10px;
+	width: 23px;
+	height: 18px;
+	transform: scale(2);
+	position: absolute;
+}
+.bullet {
+	background: url('1942.gif');
+	background-position: -185px -400px;
+	width: 18px;
+	height: 18px;
+	position: absolute;
+}
+
+.explosion {
+	background: url('1942.gif');
+	background-position-y: -34px;
+	background-position-x: -40px;
+	width: 30px;
+	height: 30px;
+	position: absolute;
+}
+
+#dashboard {
+	background-image: url('dashboard.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	position: absolute;
+	width: 170px;
+	height: 143px;
+	top: 20px;
+	left: 80px;
+	font-size: large;
+	font-family: Arial;
+	color: white;
+	font-weight: bolder;
+}
+
+#dashboard div {
+	display: flex;
+	justify-content: space-around;
+}
+
+#score {
+}
+
+button {
+	background-color: rgb(10, 10, 90);
+	border-radius: 5px;
+	color: white;
+}
+
+@keyframes explode {
+	0% {
+		background-position-x: -40px;
+	}
+	25% {
+		background-position-x: -76px;
+	}
+	50% {
+		background-position-x: -85px;
+	}
+	75% {
+		background-position-x: -113px;
+	}
+	100% {
+		background-position-x: -145px;
+	}
+}
