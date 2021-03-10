@@ -98,7 +98,7 @@ var pacman = {
 };
 document.onkeydown = function (e) {
 	var hasMatch = true;
-	switch (e.key) {
+	switch (e.code) {
 		case 'ArrowRight':
 			if (map[pacman.y][pacman.x + 1] != 2) {
 				pacman.x += 1;
