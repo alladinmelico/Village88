@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title>Mario Game</title>
+
+		<style type="text/css">
+			div.row div {
+				width: 53px;
+				height: 60px;
+				display: inline-block;
+			}
+			div.sky {
+				background-color: lightblue;
+			}
+			div.question {
+				background: url('question.jpeg');
+				background-size: 100% auto;
+			}
+			div.ground {
+				background-color: brown;
+			}
+			div.pipe {
+				background-color: green;
+			}
+			div#chr {
+				background: url('chr.gif');
+				background-position: 0px -145px;
+				position: absolute;
+				top: 200px;
+				left: 0px;
+				width: 53px;
+				height: 60px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="world"></div>
+		<div id="chr"></div>
+
+		<script src="index.js"></script>
+	</body>
+</html>
