@@ -126,7 +126,8 @@ function moveBullets() {
 	for (let i = 0; i < bullets.length; i++) {
 		bullets[i].y -= hero.bulletSpeed;
 		if (bullets[i].y < 0) {
-			bullets.shift();
+			bullets[i] = bullets[bullets.length - 1];
+			bullets.pop();
 		}
 	}
 }

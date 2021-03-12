@@ -1,0 +1,41 @@
+#world {
+	width: 1280px;
+	height: 720px;
+	background-color: wheat;
+}
+
+#world div {
+	position: absolute;
+}
+
+div#mario {
+	background: url('chr.gif');
+	background-position: 0px -145px;
+	position: absolute;
+	top: 200px;
+	left: 0px;
+	width: 53px;
+	height: 60px;
+}
+div.row div {
+	width: 53px;
+	height: 60px;
+	display: inline-block;
+}
+div.sky {
+	background-color: lightblue;
+}
+div.question {
+	background: url('question.jpeg');
+	background-size: 100% auto;
+}
+div.ground {
+	background-color: brown;
+}
+div.pipe {
+	background-color: green;
+}
+div.obstacle {
+	position: absolute;
+	background: url('background.gif');
+}
