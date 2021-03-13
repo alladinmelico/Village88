@@ -13,6 +13,12 @@ body {
 	background-size: cover;
 }
 
+.fire {
+	background: url('ken.png') 0px -320px;
+	width: 70px;
+	height: 80px;
+	position: absolute;
+}
 #character1 {
 	top: 180px;
 	left: 20px;
