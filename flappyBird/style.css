@@ -1,0 +1,101 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: rgb(20, 20, 20);
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#world {
+	background-image: url('flappy.png');
+	background-position: 0px 0px;
+	height: 615px;
+	width: 345px;
+	position: absolute;
+}
+
+#floor {
+	background-image: url('flappy.png');
+	background-position: -698px -0px;
+	height: 133px;
+	width: 345px;
+	top: 612px;
+	position: absolute;
+	z-index: 90;
+}
+
+#score {
+	position: absolute;
+	left: 170px;
+	top: 10px;
+	color: white;
+	font-size: 15px;
+	z-index: 120;
+}
+
+#bird {
+	background-image: url('bird.gif');
+	background-position: center;
+	background-size: 100px;
+	background-repeat: no-repeat;
+	height: 50px;
+	width: 50px;
+	left: 10px;
+	z-index: 100;
+	position: absolute;
+}
+
+#controls {
+	background-color: #e6611d;
+	border: solid 4px #553006;
+	width: 150px;
+	height: 50px;
+	left: 180px;
+	top: 50px;
+	color: white;
+	position: absolute;
+	z-index: 90;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#controls div {
+	display: flex;
+	justify-content: space-around;
+}
+
+#pipes {
+	z-index: 80;
+	height: 615px;
+	width: 345px;
+}
+
+.pipe {
+	background-image: url('flappy.png');
+	width: 63px;
+	position: absolute;
+	z-index: 80;
+}
+
+button {
+	padding: 3px;
+	background-color: white;
+	border-radius: 5px;
+}
+
+#gameover {
+	background-image: url('flappy.png');
+	background-color: transparent;
+	border: none;
+	background-position: -946px -138px;
+	height: 60px;
+	width: 230px;
+	top: 300px;
+	left: 50px;
+	cursor: pointer;
+	z-index: 1000;
+}
