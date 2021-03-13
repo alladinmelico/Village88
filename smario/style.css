@@ -8,6 +8,17 @@
 	position: absolute;
 }
 
+#obstacles {
+	background: url('background.gif');
+}
+
+#floor {
+	background: url('brick.jpg');
+	background-size: contain;
+	height: 40px;
+	width: 1280px;
+}
+
 div#mario {
 	background: url('chr.gif');
 	background-position: 0px -145px;
@@ -37,5 +48,6 @@ div.pipe {
 }
 div.obstacle {
 	position: absolute;
+	background-color: red;
 	background: url('background.gif');
 }

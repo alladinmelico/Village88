@@ -1,0 +1,50 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body {
+	background-color: black;
+}
+#background {
+	width: 800px;
+	height: 260px;
+	background: url('background_blanka.gif');
+	background-size: cover;
+}
+
+#character1 {
+	top: 180px;
+	left: 20px;
+	background: url('ken.png') 0px -80px;
+	width: 70px;
+	height: 80px;
+	position: absolute;
+}
+#character2 {
+	top: 180px;
+	left: 500px;
+	background: url('ken.png') -70px -160px;
+	width: 70px;
+	height: 80px;
+	position: absolute;
+	transform: scaleX(-1);
+}
+#healthbar1 {
+	width: 200px;
+	height: 15px;
+	background-color: lightgreen;
+	border: 3px solid green;
+	position: absolute;
+	top: 30px;
+	left: 25px;
+}
+#healthbar2 {
+	width: 200px;
+	height: 15px;
+	background-color: pink;
+	border: 3px solid red;
+	position: absolute;
+	top: 30px;
+	left: 325px;
+}

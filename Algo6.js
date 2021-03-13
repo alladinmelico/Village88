@@ -28,16 +28,15 @@ console.log(moveForward([1, 2, 3]));
 // 3. Given an array, return an array with values in a reversed order.
 //For example, returnReversed([1,2,3]) should return [3,2,1].
 function returnReversed(arr) {
-	let len = arr.length;
-	let half = Math.floor(len / 2);
-	for (let i = 0; i < half; i++) {
+	for (let i = 0; i < arr.length / 2; i++) {
 		let temp = arr[i];
-		arr[i] = arr[len - 1];
-		arr[len - 1] = temp;
+		arr[i] = arr[arr.length - 1 - i];
+		arr[arr.length - 1 - i] = temp;
 	}
 	return arr;
 }
 console.log(returnReversed([1, 2, 3]));
+console.log(returnReversed([1, 2, 3, 4]));
 
 //Create a function that changes a given array to list each original element twice, retaining original order.  Have the function return the new array.
 //For example repeatTwice( [4,”Ulysses”, 42, false] ) should return [4,4, “Ulysses”, “Ulysses”, 42, 42, false, false].

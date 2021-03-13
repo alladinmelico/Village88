@@ -114,69 +114,58 @@ var map = {
 	},
 };
 
-var obstacles = [];
-var obstacleProbabilities = (function (e) {
-	let values = [];
-	for (let i = 1; i <= 100; i++) {
-		// probabilities of blocks on the map
-		if (i >= 80) {
-			values.push('brick');
-		} else if (i >= 75) {
-			values.push('wide');
-		} else if (i >= 70) {
-			values.push('tall');
-		} else {
-			values.push('brick');
+var obstacleMap = [
+	[0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 2, 3, 1, 0, 0, 4, 0, 5, 0],
+	[1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1],
+];
+
+var obstacleCodes = {
+	1: map.obstacles.brick,
+	2: map.obstacles.wide,
+	3: map.obstacles.medium,
+	4: map.obstacles.tall,
+	5: map.obstacles.small,
+};
+
+function drawWorld() {
+	let render = '';
+	for (let col = 0; col < obstacleMap.length; col++) {
+		for (let row = 0; row < obstacleMap[col].length; row++) {
+			switch (obstacleMap[col][row]) {
+				case 1:
+					if (col == 4) {
+						obstacleCodes['1'].y = MAP_HEIGHT - 20;
+					}
+					render +=
+						'<div class="obstacle" style="background-position:' +
+						obstacleCodes['1'].left +
+						' ' +
+						obstacleCodes['1'].top +
+						'; left:' +
+						obstacleCodes['1'].x +
+						'px; top: ' +
+						obstacleCodes['1'].y +
+						'px;width: ' +
+						obstacleCodes['1'].width +
+						'px; height: ' +
+						obstacleCodes['1'].height +
+						'px" ></div>';
+					break;
+
+				default:
+					break;
+			}
 		}
 	}
-	return values;
-})();
-
-function drawWorld() {}
-
-function generateObstacle() {
-	let obstacle =
-		map.obstacles[
-			obstacleProbabilities[
-				Math.floor(Math.random() * obstacleProbabilities.length)
-			]
-		];
-	obstacle.x = Math.random() * 1270;
-	return obstacle;
+	document.getElementById('obstacles').innerHTML = render;
 }
-
-function generateObstacles() {
-	for (let i = 0; i < WORLD_WIDTH; i++) {
-		obstacles.push(generateObstacle());
-	}
-	console.log(obstacles);
-}
-generateObstacles();
 
 function drawCharacter() {
 	document.getElementById('mario').style.top = mario.y + 'px';
 	document.getElementById('mario').style.left = mario.x + 'px';
-}
-
-function drawObstacles() {
-	var render = '';
-	for (let i = 0; i < obstacles.length; i++) {
-		render +=
-			'<div class="obstacle" style="top:' +
-			Math.floor(obstacles[i].y) +
-			'px; left:' +
-			Math.floor(obstacles[i].x) +
-			'px; width:' +
-			obstacles[i].width +
-			'px; height: ' +
-			obstacles[i].height +
-			'px; background-position:' +
-			obstacles[i].left +
-			' ' +
-			obstacles[i].top +
-			'"></div>';
-	}
-	document.getElementById('obstacles').innerHTML = render;
 }
 
 function gravity() {
@@ -214,7 +203,6 @@ function gameLoop() {
 	// }
 	drawWorld();
 	drawCharacter();
-	drawObstacles();
 	gravity();
 }
 
